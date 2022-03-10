@@ -1,0 +1,7 @@
+*__pycache__*
+*.dat
+venv
+test/tests
+test/.rasa
+.idea
+test/models/*.tar.gz

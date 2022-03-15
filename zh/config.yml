@@ -3,16 +3,21 @@ recipe: default.v1
 language: zh
 
 pipeline:
-  - name: "JiebaTokenizer"
-  - name: "RegexFeaturizer"
-  - name: "LexicalSyntacticFeaturizer"
-  - name: "LanguageModelFeaturizer"
-    model_name: "bert"
-    model_weights: "hfl/chinese-roberta-wwm-ext-large"
-    cache_dir: "./bert_model"
-  - name: "EntitySynonymMapper"
+  - name: "SpacyNLP"
+    model: "zh_core_web_md"
+  - name: "SpacyTokenizer"
+    # Flag to check whether to split intents
+    "intent_tokenization_flag": False
+    # Symbol on which intent should be split
+    "intent_split_symbol": "_"
+    # Regular expression to detect tokens
+    "token_pattern": None
+  - name: "SpacyFeaturizer"
+    # Specify what pooling operation should be used to calculate the vector of
+    # the complete utterance. Available options: 'mean' and 'max'.
+    "pooling": "mean"
   - name: "DIETClassifier"
-    epochs: 100
+    epochs: 1000
 
 policies:
   - name: MemoizationPolicy

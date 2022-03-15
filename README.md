@@ -4,9 +4,10 @@
 ```
 # python 3.8
 
-# python3.8 依赖包 rasa==3.0.8
+# python3.8 依赖包 rasa==3.0.9
 
-pip3.8 install rasa==3.0.8 -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3.8 install rasa==3.0.9 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 ```
 
 ## Training NLU-only models

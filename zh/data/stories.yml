@@ -1,0 +1,115 @@
+version: "3.0"
+
+stories:
+
+- story: simple path with greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather_address_date_time
+    entities:
+    - address: "上海"
+    - date_time: "明天"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+- story: simple path
+  steps:
+  - intent: weather_address_date_time
+    entities:
+    - address: "上海"
+    - date_time: "明天"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+- story: address + date-time path with greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather_date_time
+    entities:
+    - date_time: "明天"
+  - action: utter_ask_address
+  - intent: weather_address
+    entities:
+    - address: "上海"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+- story: date-time + address path
+  steps:
+  - intent: weather_date_time
+    entities:
+    - date_time: "明天"
+  - action: utter_ask_address
+  - intent: weather_address
+    entities:
+    - address: "上海"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+
+- story: None + date-time + address path
+  steps:
+  - intent: weather
+  - action: utter_ask_date-time
+  - intent: weather_date_time
+    entities:
+    - date_time: "明天"
+  - action: utter_ask_address
+  - intent: weather_address
+    entities:
+    - address: "上海"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+- story: None + date-time + address path with greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather
+  - action: utter_ask_date-time
+  - intent: weather_date_time
+    entities:
+    - date_time: "明天"
+  - action: utter_ask_address
+  - intent: weather_address
+    entities:
+    - address: "上海"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+
+- story: simple path with change address
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather_address_date_time
+    entities:
+      - address: "上海"
+      - date_time: "明天"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+  - or:
+    - intent: weather_address
+      entities:
+      - address: "上海"
+    - intent: weather_date_time
+      entities:
+      - date_time: "明天"
+  - action: utter_working_on_it
+  - action: action_report_weather
+  - action: utter_report_weather
+
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

@@ -1,13 +1,18 @@
-# ai-rasa
+# ai-nlu-rasa
 
 ## 软件要求：
+ 
+ - python 3.8
+ - rasa==3.0.9
+ - jieba==0.42.1
+
 ```
-# python 3.8
+pip3.8 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
-# python3.8 依赖包 rasa==3.0.9
-
-pip3.8 install rasa==3.0.9 -i https://pypi.tuna.tsinghua.edu.cn/simple
-
+## install pre model
+```
+pip install zh_core_web_trf-3.2.0.tar.gz
 ```
 
 ## Training NLU-only models

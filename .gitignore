@@ -1,7 +1,10 @@
 *__pycache__*
 *.dat
 venv
-test/tests
-test/.rasa
+tests
 .idea
-test/models/*.tar.gz
+nlu*.tar.gz
+.rasa
+bert_model
+bert
+

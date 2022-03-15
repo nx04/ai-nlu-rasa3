@@ -1,52 +1,19 @@
 recipe: default.v1
+
 language: zh
+
 pipeline:
-  - name: "SpacyNLP"
-    "model": "zh_core_web_sm"
-    "case_sensitive": False
   - name: "JiebaTokenizer"
-    "intent_tokenization_flag": False
-    "intent_split_symbol": "_"
-    "token_pattern": None
-  - name: "SpacyFeaturizer"
-    "pooling": "mean"
   - name: "RegexFeaturizer"
-    "case_sensitive": True
-    "use_word_boundaries": True
-  - name: "CRFEntityExtractor"
-      "BILOU_flag": True
-      "features": [
-        [ "low", "title", "upper" ],
-        [
-            "bias",
-            "low",
-            "prefix5",
-            "prefix2",
-            "suffix5",
-            "suffix3",
-            "suffix2",
-            "upper",
-            "title",
-            "digit",
-            "pattern",
-        ],
-        [ "low", "title", "upper" ],
-        [ "text_dense_features" ]
-      ]
-      "max_iterations": 50
-      "L1_c": 0.1
-      "L2_c": 0.1
-      "featurizers": [ ]
-      "split_entities_by_comma":
-        address: False
-        email: True
+  - name: "LexicalSyntacticFeaturizer"
+  - name: "LanguageModelFeaturizer"
+    model_name: "bert"
+    model_weights: "hfl/chinese-roberta-wwm-ext-large"
+    cache_dir: "./bert_model"
   - name: "EntitySynonymMapper"
-  - name: "SklearnIntentClassifier"
-    C: [1, 2, 5, 10, 20, 100]
-    kernels: ["linear"]
-    "gamma": [0.1]
-    "max_cross_validation_folds": 5
-    "scoring_function": "f1_weighted"
+  - name: "DIETClassifier"
+    epochs: 100
+
 policies:
   - name: MemoizationPolicy
   - name: TEDPolicy

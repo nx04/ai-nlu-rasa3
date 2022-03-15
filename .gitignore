@@ -6,5 +6,4 @@ tests
 nlu*.tar.gz
 .rasa
 bert_model
-bert
 

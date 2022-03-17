@@ -4,7 +4,7 @@ language: zh
 
 pipeline:
   - name: "SpacyNLP"
-    model: "zh_core_web_trf"
+    model: "zh_core_web_lg"
   - name: "SpacyTokenizer"
     # Flag to check whether to split intents
     "intent_tokenization_flag": False

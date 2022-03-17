@@ -1,7 +1,7 @@
 version: "3.0"
 
 nlu:
-- intent: weather_address_date_time
+- intent: 问天气意图
   examples: |
     - 我要[上海](address)[明天](date_time)的天气
     - 我想要知道一下[上海](address)[明天](date_time)的天气
@@ -41,7 +41,7 @@ nlu:
     - [上海](address)[三天后](date_time)多少度
     - [明天](date_time)[上海](address)的温度如何
 
-- intent: weather_address
+- intent: 问天气意图
   examples: |
     - 告诉我在[广州](address)怎么样
     - 告诉我在[广州](address)
@@ -61,7 +61,7 @@ nlu:
     - [台南市南区](address)现在几度
     - [上海](address)多热
 
-- intent: weather_date_time
+- intent: 问天气意图
   examples: |
     - 怎么能[下个星期日](date_time)
     - 还需要[昨天](date_time)
@@ -91,7 +91,7 @@ nlu:
     - [今天](date_time)天气很热耶
     - 就让你问他[今天](date_time)天气几度
 
-- intent: weather
+- intent: 问天气意图
   examples: |
     - 用着摄氏度显示天气
     - 我需要不需要雨裤
@@ -107,7 +107,28 @@ nlu:
     - 天气很冷
     - 天气会不会很热
 
-- intent: greet
+- intent: 问价格意图
+  examples: |
+    - 请问价格贵吗
+    - 需要多少钱
+    - 有点贵
+    - 优惠吗
+    - 打折吗
+    - 可以便宜一点吗
+    - 能不能便宜一点
+
+- intent: 问年龄意图
+  examples: |
+    - 多大了
+    - 请问多少岁
+
+- intent: 未知意图
+  examples: |
+    - 多少
+    - 多少吗
+    - 请问多少
+
+- intent: 打招呼
   examples: |
     - 你好
     - 您好
@@ -127,7 +148,7 @@ nlu:
     - goodevening
     - good afternoon
 
-- intent: goodbye
+- intent: 结束语
   examples: |
     - 拜拜
     - 再见

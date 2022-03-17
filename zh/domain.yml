@@ -3,10 +3,8 @@ version: "3.0"
 intents:
   - greet
   - goodbye
-  - weather
-  - weather_address_date_time
-  - weather_address
-  - weather_date_time
+  - ask_weather
+  - ask_price
 
 slots:
   address:

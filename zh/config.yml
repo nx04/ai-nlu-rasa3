@@ -7,9 +7,9 @@ pipeline:
     model: "zh_core_web_lg"
   - name: "SpacyTokenizer"
     # Flag to check whether to split intents
-    "intent_tokenization_flag": False
+    "intent_tokenization_flag": True
     # Symbol on which intent should be split
-    "intent_split_symbol": "_"
+    "intent_split_symbol": "+"
     # Regular expression to detect tokens
     "token_pattern": None
   - name: "SpacyFeaturizer"
